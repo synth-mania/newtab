@@ -16,6 +16,9 @@
             background-color: black;
             color: white;
             font-family: 'Courier New', Courier, monospace;
+            background-image: url('https://source.unsplash.com/random/1920x1080');
+            background-size: cover;
+            background-position: center;
         }
 
         .content {
@@ -51,6 +54,48 @@
         .greeting {
             font-size: 1.5rem;
             margin-bottom: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1.1rem;
+            color: black;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #3e8e41;
+        }
+
+        .links-container {
+            margin-top: 20px;
+        }
+
+        .links-container a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .links-container a:hover {
+            text-decoration: underline;
         }
     </style>
     <script>
@@ -91,8 +136,18 @@
     <div class="content">
         <div class="clock" id="clock"></div>
         <div class="greeting" id="greeting"></div>
-<!--         <h1>Welcome</h1> -->
-        <p>Your new tab awaits.</p>
+        <div class="search-container">
+            <form action="https://duckduckgo.com/" method="get">
+                <input type="text" name="q" placeholder="Search..." class="search-input">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        <div class="links-container">
+            <a href="https://www.google.com">Google</a>
+            <a href="https://www.youtube.com">YouTube</a>
+            <a href="https://www.facebook.com">Facebook</a>
+            <a href="https://www.twitter.com">Twitter</a>
+        </div>
         <a href="https://burke.su">Visit burke.su</a>
     </div>
 </body>
