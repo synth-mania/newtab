@@ -51,51 +51,67 @@
             font-weight: bold;
         }
 
-        .greeting {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
 
         .search-container {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .search-input {
-            padding: 10px;
+            padding: 5px;
             border: none;
-            border-radius: 5px;
-            width: 300px;
-            font-size: 1.1rem;
-            color: black;
-        }
-
-        .search-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
+            border-radius: 3px;
+            width: 200px;
+            font-size: 1rem;
             color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .search-button:hover {
-            background-color: #3e8e41;
+        .clock {
+            font-size: 2rem;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
 
         .links-container {
-            margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .clock {
+                position: static;
+                transform: none;
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+
+            .links-container {
+                margin-top: 20px;
+            }
+
+            .links-container a {
+                margin-bottom: 10px;
+            }
         }
 
         .links-container a {
-            margin: 0 10px;
             color: white;
             text-decoration: none;
-            font-size: 1.1rem;
+            margin-right: 20px;
         }
 
-        .links-container a:hover {
-            text-decoration: underline;
+        @media (max-width: 600px) {
+            .links-container {
+                position: static;
+                margin-top: 10px;
+                justify-content: center;
+                flex-direction: column;
+            }
         }
     </style>
     <script>
@@ -107,48 +123,30 @@
             document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        function updateGreeting() {
-            const now = new Date();
-            const hour = now.getHours();
-            let greeting;
-
-            if (hour >= 5 && hour < 12) {
-                greeting = "Good Morning";
-            } else if (hour >= 12 && hour < 18) {
-                greeting = "Good Afternoon";
-            } else {
-                greeting = "Good Evening";
-            }
-
-            document.getElementById('greeting').textContent = greeting;
-        }
-
         setInterval(updateClock, 1000);
-        setInterval(updateGreeting, 1000);
 
         window.onload = function () {
             updateClock();
-            updateGreeting();
         };
     </script>
 </head>
 <body>
     <div class="content">
         <div class="clock" id="clock"></div>
-        <div class="greeting" id="greeting"></div>
         <div class="search-container">
             <form action="https://duckduckgo.com/" method="get">
-                <input type="text" name="q" placeholder="Search..." class="search-input">
-                <button type="submit" class="search-button">Search</button>
+                <input type="text" name="q" placeholder="Search DuckDuckGo..." class="search-input">
+            </form>
+        </div>
+        <div class="search-container">
+            <form action="https://www.perplexity.ai/search" method="get">
+                <input type="text" name="q" placeholder="Search Perplexity..." class="search-input">
             </form>
         </div>
         <div class="links-container">
-            <a href="https://www.google.com">Google</a>
-            <a href="https://www.youtube.com">YouTube</a>
-            <a href="https://www.facebook.com">Facebook</a>
-            <a href="https://www.twitter.com">Twitter</a>
+            <a href="https://burke.su">burke.su</a>
+            <a href="https://login.tailscale.com/admin/machines">Tailnet</a>
         </div>
-        <a href="https://burke.su">Visit burke.su</a>
     </div>
 </body>
 </html>
